@@ -1,0 +1,451 @@
+/*
+  CF Claims Website Stylesheet
+
+  This stylesheet defines the look and feel of the car finance claims website.
+  It uses CSS variables for easy theming and media queries to adapt
+  layouts to different screen sizes. All colours and typography have been
+  chosen for strong contrast and readability.
+*/
+
+/* CSS Variables */
+:root {
+  --colour-primary: #0a2d59; /* deep blue for headings and nav */
+  --colour-accent: #e77e23; /* warm orange for buttons and highlights */
+  --colour-background: #ffffff; /* page background */
+  --colour-light: #f7f9fc; /* light grey background for alternating sections */
+  --colour-text: #1a1a1a; /* primary body text colour */
+  --colour-text-light: #f7f9fc; /* light text for dark backgrounds */
+  --colour-footer: #0a1f3c; /* dark footer background */
+  --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+  color: var(--colour-text);
+  background-color: var(--colour-background);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--colour-primary);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  background-color: var(--colour-background);
+  border-bottom: 1px solid #e5eaf0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--colour-primary);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--colour-primary);
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--colour-accent);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  background-image: url('site_assets/car_key.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--colour-text-light);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 29, 89, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--colour-accent);
+  color: var(--colour-text-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+  background-color: #cf6916;
+  color: var(--colour-text-light);
+}
+
+.cta-button.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Contact section image */
+.contact-image {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .contact-image {
+    float: left;
+    margin-right: 2rem;
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+  #contact form {
+    overflow: hidden; /* Clear floats */
+  }
+}
+
+.hero-note {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--colour-light);
+}
+
+/* Sections */
+.section {
+  padding: 3rem 0;
+}
+
+.light-bg {
+  background-color: var(--colour-light);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--colour-primary);
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--colour-primary);
+}
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.checklist li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.checklist li::before {
+  content: '\2713';
+  color: var(--colour-accent);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: bold;
+}
+
+/* Steps */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.step {
+  background-color: var(--colour-background);
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.step-icon {
+  font-size: 2rem;
+  color: var(--colour-accent);
+  margin-bottom: 0.5rem;
+}
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature {
+  background-color: var(--colour-background);
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: var(--colour-accent);
+  margin-bottom: 0.5rem;
+}
+
+/* FAQ */
+.faq {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e5eaf0;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--colour-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question:focus {
+  outline: 2px dashed var(--colour-accent);
+  outline-offset: 4px;
+}
+
+.faq-answer {
+  padding: 0 0 1rem 0;
+  display: none;
+}
+
+.faq-answer p {
+  margin-top: 0;
+}
+
+/* Form */
+form {
+  margin-top: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d9e0;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--colour-accent);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(231, 126, 35, 0.2);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--colour-footer);
+  color: var(--colour-text-light);
+  padding: 2rem 0 1rem;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.footer h3 {
+  color: var(--colour-accent);
+  margin-bottom: 0.5rem;
+}
+
+.footer p,
+.footer a {
+  color: var(--colour-light);
+  font-size: 0.9rem;
+}
+
+.footer a:hover,
+.footer a:focus {
+  text-decoration: underline;
+}
+
+.legal {
+  font-size: 0.75rem;
+  color: #b2c7e7;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 0.5rem;
+}
+
+.legal a {
+  color: #b2c7e7;
+  margin-right: 0.25rem;
+}
+
+/* Footnote styling: small, underlined numbers */
+.footnote {
+  font-size: 0.75rem;
+  margin-right: 0.25rem;
+  text-decoration: underline;
+  color: #b2c7e7;
+}
+
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--colour-footer);
+  color: var(--colour-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  flex-wrap: wrap;
+  z-index: 200;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie-banner p {
+  margin-bottom: 0.5rem;
+  flex: 1 1 70%;
+  font-size: 0.875rem;
+}
+
+.cookie-banner .cta-button {
+  flex: 1 1 auto;
+  margin-left: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .tagline {
+    font-size: 1rem;
+  }
+  .steps,
+  .features {
+    grid-template-columns: 1fr;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+  .legal {
+    text-align: left;
+  }
+}
